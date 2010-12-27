@@ -51,6 +51,10 @@ function vConfirma(t,i){
     return i.value==i.form.elements[i.name+"2"].value
 }
 
+function vSlug(t){
+  return t.replace(/\w/g,'')==''
+}
+
 function vData(t){
     if(t=="")return true
     var dat=/^[0123]?\d\/[01]?\d\/\d{4}$/
@@ -70,6 +74,7 @@ validadores={
     "vCEP":vCEP,
     "vConfirma":vConfirma,
     "vData":vData,
+    "vSlug":vSlug,
     "vObrigatorio":vObrigatorio
 }
 
@@ -80,11 +85,13 @@ erros={
     "vCPF":"número de CPF inválido",
     "vConfirma":"digite corretamente a confirmação",
     "vData":"digite corretamente a data",
+    "vSlug":"digite apenas letras, números e _",
     "vObrigatorio":"o campo precisa ser preenchido"
 }
 
 mascaras={
     "vMaskNumero":[ [/\D/g,""]                                        , false      ],
+    "vMaskSlug":  [ [/\W/g,""]                                        , false      ],
     "vMaskCPF":   [ [/^(\d{3})(\d{3})(\d{3})(\d{2})$/,"$1.$2.$3-$4"]  , [/\D/g,""] ],
     "vMaskData":  [ [/^(\d{2})(\d{2})(\d{4})$/,"$1/$2/$3"]            , [/\D/g,""] ],
     "vMaskCEP":   [ [/^(\d{5})(\d{3})$/,"$1-$2"]                      , [/\D/g,""] ]
