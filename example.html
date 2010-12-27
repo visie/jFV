@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+
+<title>Teste de Validador</title>
+<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script src="js/form.js"></script>
+
+</head>
+
+<body>
+
+<form class="vForm">
+  <fieldset>
+    <legend>Obrigatórios:</legend>
+    <label for="nome" class="vObrigatorio">nome: <input name="nome" id="nome" /></label>
+    <label for="email" class="vEmail vObrigatorio">email: <input name="email" id="email" /></label>
+    <label for="senha" class="vObrigatorio vConfirma">senha: <input name="senha" id="senha" type="password" /></label>
+    <label for="senha2">repita a senha: <input name="senha2" id="senha2" type="password" /></label>
+  </fieldset>
+  <fieldset>
+    <legend>Máscaras</legend>
+    <label for="cpf" class="vCPF vMaskCPF">CPF: <input name="cpf" id="cpf" /></label>
+    <label for="cep" class="vCEP vMaskCEP">CEP: <input name="cep" id="cep" /></label>
+    <label for="data" class="vData vMaskData">data: <input name="data" id="data" /></label>
+    <label for="numero" class="vNumero vMaskNumero">numero: <input name="numero" id="numero" /></label>
+  </fieldset>
+  <input type="submit" value="Enviar" />
+</form>
+
+</body>
+
+</html>
+

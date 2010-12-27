@@ -135,6 +135,6 @@ $(function(){
   $("form.vForm")
     .submit(validaForm)
     .find("label input")
-      .blur(function(){mascarar(this,0)})
+      .blur(function(){mascarar(this,1),mascarar(this,0)})
       .focus(function(){mascarar(this,1)})
 })
