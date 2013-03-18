@@ -100,7 +100,12 @@ mascaras={
 function showErros(er){
     var txterr="Por favor, corrija os seguintes erros:\n"
     for(var i=0;i<er.length;i++){
-        txterr+=" * "+er[i][0].parentNode.innerHTML.replace(/<[^>]*>| *: */g,"")+": "+er[i][1]+"\n"
+        txterr += " * " + $(er[i][0])
+                            .parent().clone()        // get the label and clone it. Don't want to change the original
+                            .find('select').remove() // remove the select
+                            .andSelf().eq(1)         // and get the label again
+                            .text().trim()           // get the result text
+               + ": " + er[i][1] + "\n"
         er[i][0].parentNode.className+=" vErro"
     }
     alert(txterr)
@@ -115,7 +120,7 @@ function validaForm(){
         for(var i=0;i<vals.length;i++)
             try{
                 var fn=validadores[vals[i]]
-                var inp=$(this).find("input")[0]
+                var inp=$(this).find("input, select")[0]
                 if(!fn(inp.value,inp)){
                     $(this).parents("form")[0].ferros.push([inp,erros[vals[i]]])
                 }
@@ -141,7 +146,7 @@ function mascarar(inp,n){
 $(function(){
   $("form.vForm")
     .submit(validaForm)
-    .find("label input")
+    .find("label input, label select")
       .blur(function(){mascarar(this,1),mascarar(this,0)})
       .focus(function(){mascarar(this,1)})
 })
