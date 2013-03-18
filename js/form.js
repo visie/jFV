@@ -101,10 +101,10 @@ function showErros(er){
     var txterr="Por favor, corrija os seguintes erros:\n"
     for(var i=0;i<er.length;i++){
         txterr += " * " + $(er[i][0])
-                            .parent().clone()        // get the label and clone it. Don't want to change the original
-                            .find('select').remove() // remove the select
-                            .andSelf().eq(1)         // and get the label again
-                            .text().trim()           // get the result text
+                            .parent().clone()          // get the label and clone it. Don't want to change the original
+                            .find('select').remove()   // remove the select
+                            .andSelf().filter('label') // and get the label again
+                            .text().trim()             // get the result text
                + ": " + er[i][1] + "\n"
         er[i][0].parentNode.className+=" vErro"
     }
