@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+  
+    <div id="conteudo">
+
+    <p>Este documento mostra como usar o Validador de formulários simples do Elcio. Sugestões de nomes para o validador são muito bem vindas. ;-)</p>
+    <p>Veja também <a href="form.php">exemplos do validador funcionando</a>.</p>
+
+    <h2>Conceitos básicos</h2>
+
+    <p>Para usar este validador você precisa incluir na seção head de sua página chamadas para os arquivos dom.js e form.js. A ordem é importante. O dom.js deve vir antes do form.js.</p>
+
+    <p>A indicação do que deve ser validado e como deve ser indicada de maneira semântica usando classes no HTML. Para validar um formulário qualquer, inclua nele a classe <em>vForm</em>, sozinha ou em conjunto com outras classes. Isso permite a você ter mais de um formulário numa mesma página e indicar qual, ou quais, você deseja que este script valide.</p>
+
+    <p>Para indicar quais campos devem ser validados, você deve usar uma ou mais classes na tag <em>label</em>.</p>
+
+    <h2>Validações possíveis</h2>
+
+    <p>As rotinas de validação disponíveis, com seus respectivos nomes de classe são:</p>
+    <ol>
+      <li><strong>vObrigatorio</strong>: o campo precisa ser preenchido.</li>
+      <li><strong>vNumero</strong>: o campo permite apenas números.</li>
+      <li><strong>vEmail</strong>: Apenas e-mails válidos.</li>
+      <li><strong>vCEP</strong>: Apenas numeros no formato de CEP, com hífen.</li>
+      <li><strong>vCPF</strong>: Validação de número de CPF.</li>
+      <li><strong>vConfirma</strong>: O valor do campo deve ser igual ao do campo cujo nome é igual ao desse mais o número 2. Por exemplo, senha e senha2.</li>
+      <li><strong>vData</strong>: Apenas datas válidas.</li>
+    </ol>
+
+    <p>Um campo pode ter mais de uma validação. Por exemplo, o campo pode ser vObrigatorio, vEmail e vConfirma ao mesmo tempo. Você pode usar essas classes também para formatação. Nos <a href="form.php">exemplos</a>, mostramos a classe vObrigatorio em negrito, indicando ao usuário quais os campos obrigatórios.</p>
+
+    <!-- Publicidade -->
+    <script type="text/javascript" src="http://elcio.com.br/adsense2.js"></script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    <!-- Fim da Publicidade -->
+
+    <h2>Máscaras</h2>
+
+    <p>Além das rotinas de validação, temos algumas máscaras que podem ser aplicadas aos campos:</p>
+
+    <ol>
+      <li><strong>vMaskNumero</strong>: apenas números</li>
+      <li><strong>vMaskCPF</strong>: máscara de CPF</li>
+      <li><strong>vMaskData</strong>: máscara de data</li>
+      <li><strong>vMaskCEP</strong>: máscara de CEP</li>
+    </ol>
+
+    <p>As máscaras podem ser aplicadas junto com os validadores.</p>
+
+    <h2>Exibindo os erros</h2>
+
+    <p>Quando o formulário é submetido, a função de validação é executada. Se ocorrerem erros de validação, eles são exibidos num alert javascript. É possível alterar este comportamento, exibindo os erros de outras maneiras. Para isso, consulte o <a href="desenvolvedor.php">manual do programador</a>.</p>
+
+    <p>Além disso, cada label onde ocorreu um erro ganha a classe vErro. Assim, é fácil usar CSS para destacar os campos com erro. Por exemplo, para mostrar em vermelho os campos com erro, basta:</p>
+
+    <pre>.vErro {
+      color:red;
+    }
+    </pre>
+
+    </div>
+
+  </body>
+</html>
